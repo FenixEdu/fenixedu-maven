@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>fenix-framework-project</artifactId>
-    <name>IST - DSI Project Root</name>
+    <name>IST - DSI Fenix Framework Project Root</name>
     <packaging>pom</packaging>
 
     <properties>
@@ -20,7 +20,7 @@
         <backendCodeGeneratorArtifact>fenix-framework-backend-jvstm-ojb-runtime</backendCodeGeneratorArtifact>
 
         <version.pt.ist.fenix.framework>2.1.0-rc2</version.pt.ist.fenix.framework>
-        <version.ch.qos.logback.logback.classic>1.0.9</version.ch.qos.logback.logback.classic>
+        <version.ch.qos.logback.logback.classic>1.0.12</version.ch.qos.logback.logback.classic>
 
         <version.org.apache.maven.plugins.maven.jar.plugin>2.4</version.org.apache.maven.plugins.maven.jar.plugin>
         <version.pt.ist.ff.maven.plugin>2.1.0-rc2</version.pt.ist.ff.maven.plugin>
@@ -49,10 +49,12 @@
                 <version>${version.org.apache.maven.plugins.maven.jar.plugin}</version>
                 <configuration>
                     <excludes>
-                        <exclude>log4j.properties*</exclude>
+                        <exclude>logback.xml</exclude>
                         <exclude>configuration.properties</exclude>
+                        <exclude>fenix-framework.properties</exclude>
                         <exclude>**/*_Base*</exclude>
-                        <exclude>**/pt/ist/fenixframework/ValueTypeSerializationGenerator*</exclude>
+                        <exclude>**/pt/ist/fenixframework/ValueTypeSerializer*</exclude>
+                        <exclude>**/pt/ist/fenixframework/backend/CurrentBackEndId*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
