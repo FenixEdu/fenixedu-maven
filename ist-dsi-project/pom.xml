@@ -33,12 +33,6 @@
         <version.org.apache.maven.plugins.maven.release.plugin>2.4.1</version.org.apache.maven.plugins.maven.release.plugin>
     </properties>
 
-    <scm>
-        <connection>scm:git:git@github.com:ist-dsi/ist-dsi-project.git</connection>
-        <developerConnection>scm:git:git@github.com:ist-dsi/ist-dsi-project.git</developerConnection>
-        <url>http://ist-dsi.github.io/ist-dsi-project/</url>
-    </scm>
-
     <build>
         <plugins>
             <plugin>
