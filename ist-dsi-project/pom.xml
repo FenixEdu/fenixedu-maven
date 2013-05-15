@@ -23,6 +23,9 @@
         <java.compilation.source.version>1.7</java.compilation.source.version>
         <java.compilation.target.version>1.7</java.compilation.target.version>
 
+        <version.com.google.code.gson.gson>2.2.3</version.com.google.code.gson.gson>
+        <version.com.google.guava.guava>14.0.1</version.com.google.guava.guava>
+        <version.javax.servlet.javax.servlet.api>3.0.1</version.javax.servlet.javax.servlet.api>
         <version.junit.junit>4.11</version.junit.junit>
         <version.org.slf4j.slf4j.api>1.7.2</version.org.slf4j.slf4j.api>
 
@@ -31,6 +34,7 @@
         <version.org.apache.maven.plugins.maven.source.plugin>2.1.2</version.org.apache.maven.plugins.maven.source.plugin>
         <version.org.apache.maven.plugins.maven.javadoc.plugin>2.9</version.org.apache.maven.plugins.maven.javadoc.plugin>
         <version.org.apache.maven.plugins.maven.release.plugin>2.4.1</version.org.apache.maven.plugins.maven.release.plugin>
+        <version>${version.org.apache.maven.plugins.maven.resources.plugin}</version>
     </properties>
 
     <scm>
@@ -123,6 +127,27 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${version.javax.servlet.javax.servlet.api}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${version.com.google.code.gson.gson}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${version.com.google.guava.guava}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
