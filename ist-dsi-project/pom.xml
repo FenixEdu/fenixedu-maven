@@ -32,9 +32,10 @@
         <version.org.apache.maven.plugins.maven.compiler.plugin>2.5.1</version.org.apache.maven.plugins.maven.compiler.plugin>
         <version.org.apache.maven.plugins.maven.deploy.plugin>2.7</version.org.apache.maven.plugins.maven.deploy.plugin>
         <version.org.apache.maven.plugins.maven.source.plugin>2.1.2</version.org.apache.maven.plugins.maven.source.plugin>
+        <version.org.apache.maven.plugins.maven.jar.plugin>2.4</version.org.apache.maven.plugins.maven.jar.plugin>
         <version.org.apache.maven.plugins.maven.javadoc.plugin>2.9</version.org.apache.maven.plugins.maven.javadoc.plugin>
         <version.org.apache.maven.plugins.maven.release.plugin>2.4.1</version.org.apache.maven.plugins.maven.release.plugin>
-        <version>${version.org.apache.maven.plugins.maven.resources.plugin}</version>
+        <version.org.apache.maven.plugins.maven.war.plugin>2.3</version.org.apache.maven.plugins.maven.war.plugin>
     </properties>
 
     <scm>
@@ -109,6 +110,32 @@
 
                     <!-- Ensure that every module is versioned together -->
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.jar.plugin}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.war.plugin}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

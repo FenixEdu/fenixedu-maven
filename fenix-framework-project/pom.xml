@@ -17,7 +17,6 @@
     <properties>
         <version.pt.ist.fenix.framework>2.1.0-rc2</version.pt.ist.fenix.framework>
 
-        <version.org.apache.maven.plugins.maven.jar.plugin>2.4</version.org.apache.maven.plugins.maven.jar.plugin>
         <version.pt.ist.ff.maven.plugin>2.1.0-rc2</version.pt.ist.ff.maven.plugin>
     </properties>
 
@@ -43,6 +42,12 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${version.org.apache.maven.plugins.maven.jar.plugin}</version>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
                     <excludes>
                         <exclude>logback.xml</exclude>
                         <exclude>configuration.properties</exclude>
