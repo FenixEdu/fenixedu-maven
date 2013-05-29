@@ -14,10 +14,10 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.pt.ist.fenix.framework>2.1.0-rc2</version.pt.ist.fenix.framework>
+        <version.pt.ist.fenix.framework>2.1.0</version.pt.ist.fenix.framework>
 
         <version.org.apache.maven.plugins.maven.jar.plugin>2.4</version.org.apache.maven.plugins.maven.jar.plugin>
-        <version.pt.ist.ff.maven.plugin>2.1.0-rc2</version.pt.ist.ff.maven.plugin>
+        <version.pt.ist.ff.maven.plugin>2.1.0</version.pt.ist.ff.maven.plugin>
     </properties>
 
     <build>
