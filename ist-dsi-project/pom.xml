@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pt.ist</groupId>
+    <artifactId>ist-dsi-project</artifactId>
+    <version>1.0.0</version>
+    <name>IST - DSI Project Root</name>
+    <packaging>pom</packaging>
+
+    <organization>
+        <name>Instituto Superior Técnico</name>
+        <url>http://www.ist.utl.pt</url>
+    </organization>
+
+    <url>http://ist-dsi.github.io</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <java.compilation.source.version>1.7</java.compilation.source.version>
+        <java.compilation.target.version>1.7</java.compilation.target.version>
+
+        <version.junit.junit>4.11</version.junit.junit>
+        <version.org.slf4j.slf4j.api>1.7.2</version.org.slf4j.slf4j.api>
+
+        <version.org.apache.maven.plugins.maven.compiler.plugin>2.5.1</version.org.apache.maven.plugins.maven.compiler.plugin>
+        <version.org.apache.maven.plugins.maven.deploy.plugin>2.7</version.org.apache.maven.plugins.maven.deploy.plugin>
+        <version.org.apache.maven.plugins.maven.source.plugin>2.1.2</version.org.apache.maven.plugins.maven.source.plugin>
+        <version.org.apache.maven.plugins.maven.javadoc.plugin>2.9</version.org.apache.maven.plugins.maven.javadoc.plugin>
+        <version.org.apache.maven.plugins.maven.release.plugin>2.4.1</version.org.apache.maven.plugins.maven.release.plugin>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.compiler.plugin}</version>
+                <configuration>
+                    <source>${java.compilation.source.version}</source>
+                    <target>${java.compilation.target.version}</target>
+                    <verbose>true</verbose>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.source.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>attach-source</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.javadoc.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadoc</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Explicitly define maven-deploy-plugin after others that run on the same phase to force exec order -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.deploy.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.release.plugin}</version>
+                <configuration>
+                    <pushChanges>false</pushChanges>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+
+                    <!-- Ensure that every module is versioned together -->
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.org.slf4j.slf4j.api}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${version.junit.junit}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>fenix-ashes-maven-repository</id>
+            <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>fenix-ashes-maven-repository</id>
+            <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>fenix-ashes-releases</id>
+            <url>https://fenix-ashes.ist.utl.pt/nexus/content/repositories/fenix-ashes-releases</url>
+        </repository>
+    </distributionManagement>
+</project>

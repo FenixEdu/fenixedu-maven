@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>pt.ist</groupId>
+        <artifactId>ist-dsi-project</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../ist-dsi-project/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>fenix-framework-project</artifactId>
+    <name>IST - DSI Fenix Framework Project Root</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <version.pt.ist.fenix.framework>2.1.0</version.pt.ist.fenix.framework>
+
+        <version.org.apache.maven.plugins.maven.jar.plugin>2.4</version.org.apache.maven.plugins.maven.jar.plugin>
+        <version.pt.ist.ff.maven.plugin>2.1.0</version.pt.ist.ff.maven.plugin>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>pt.ist</groupId>
+                <artifactId>ff-maven-plugin</artifactId>
+                <version>${version.pt.ist.ff.maven.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>ff-generate-domain</goal>
+                            <goal>ff-post-compile</goal>
+                            <goal>ff-process-atomic-annotations</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven.jar.plugin}</version>
+                <configuration>
+                    <excludes>
+                        <exclude>logback.xml</exclude>
+                        <exclude>configuration.properties</exclude>
+                        <exclude>fenix-framework.properties</exclude>
+                        <exclude>**/*_Base*</exclude>
+                        <exclude>**/pt/ist/fenixframework/ValueTypeSerializer*</exclude>
+                        <exclude>**/pt/ist/fenixframework/backend/CurrentBackEndId*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>pt.ist</groupId>
+            <artifactId>fenix-framework-core-api</artifactId>
+            <version>${version.pt.ist.fenix.framework}</version>
+        </dependency>
+        <dependency>
+            <groupId>pt.ist</groupId>
+            <artifactId>fenix-framework-core-consistency-predicates</artifactId>
+            <version>${version.pt.ist.fenix.framework}</version>
+        </dependency>
+    </dependencies>
+
+</project>
