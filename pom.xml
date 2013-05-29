@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pt.ist</groupId>
+    <artifactId>ist-dsi-maven</artifactId>
+    <name>IST-DSI Maven Tools</name>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <scm>
+        <connection>scm:git:git@github.com:ist-dsi/ist-dsi-maven.git</connection>
+        <developerConnection>scm:git:git@github.com:ist-dsi/ist-dsi-maven.git</developerConnection>
+        <url>http://ist-dsi.github.io/ist-dsi-maven</url>
+        <tag>v1.0.0</tag>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <pushChanges>false</pushChanges>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+
+                    <!-- Ensure that every module is versioned together -->
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>ist-dsi-project</module>
+        <module>fenix-framework-project</module>
+    </modules>
+
+</project>
