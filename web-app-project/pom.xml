@@ -5,19 +5,23 @@
 
     <parent>
         <groupId>pt.ist</groupId>
-        <artifactId>web-library-project</artifactId>
+        <artifactId>ist-dsi-project</artifactId>
         <version>1.1.0-SNAPSHOT</version>
-        <relativePath>../web-library-project/pom.xml</relativePath>
+        <relativePath>../ist-dsi-project/pom.xml</relativePath>
     </parent>
 
-    <artifactId>fenix-framework-project</artifactId>
-    <name>IST - DSI Fenix Framework Project Root</name>
+    <artifactId>web-app-project</artifactId>
+    <name>Servlet 3.0 War Project</name>
     <packaging>pom</packaging>
 
     <properties>
+        <version.ch.qos.logback.logback.classic>1.0.12</version.ch.qos.logback.logback.classic>
         <version.pt.ist.fenix.framework>2.1.0</version.pt.ist.fenix.framework>
 
         <version.pt.ist.ff.maven.plugin>2.1.0</version.pt.ist.ff.maven.plugin>
+
+        <fenix.framework.codeGeneratorClassName>pt.ist.fenixframework.backend.jvstmojb.codeGenerator.FenixCodeGeneratorOneBoxPerObject</fenix.framework.codeGeneratorClassName>
+        <fenix.framework.backend>jvstm-ojb</fenix.framework.backend>
     </properties>
 
     <build>
@@ -26,6 +30,9 @@
                 <groupId>pt.ist</groupId>
                 <artifactId>ff-maven-plugin</artifactId>
                 <version>${version.pt.ist.ff.maven.plugin}</version>
+                <configuration>
+                    <codeGeneratorClassName>${fenix.framework.codeGeneratorClassName}</codeGeneratorClassName>
+                </configuration>
                 <executions>
                     <execution>
                         <id>default</id>
@@ -36,37 +43,26 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${version.org.apache.maven.plugins.maven.jar.plugin}</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                        </manifest>
-                    </archive>
-                    <excludes>
-                        <exclude>**/*_Base*</exclude>
-                        <exclude>**/pt/ist/fenixframework/ValueTypeSerializer*</exclude>
-                        <exclude>**/pt/ist/fenixframework/backend/CurrentBackEndId*</exclude>
-                    </excludes>
-                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>pt.ist</groupId>
+                        <artifactId>fenix-framework-backend-${fenix.framework.backend}-code-generator</artifactId>
+                        <version>${version.pt.ist.fenix.framework}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
         <dependency>
-            <groupId>pt.ist</groupId>
-            <artifactId>fenix-framework-core-api</artifactId>
-            <version>${version.pt.ist.fenix.framework}</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${version.ch.qos.logback.logback.classic}</version>
         </dependency>
         <dependency>
             <groupId>pt.ist</groupId>
-            <artifactId>fenix-framework-core-consistency-predicates</artifactId>
+            <artifactId>fenix-framework-backend-${fenix.framework.backend}-runtime</artifactId>
             <version>${version.pt.ist.fenix.framework}</version>
         </dependency>
     </dependencies>
@@ -77,5 +73,4 @@
             <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
         </repository>
     </repositories>
-
 </project>

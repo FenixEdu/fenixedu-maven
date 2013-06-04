@@ -33,9 +33,18 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>fenix-ashes-maven-repository</id>
+            <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
+        </repository>
+    </repositories>
+
     <modules>
-        <module>ist-dsi-project</module>
+        <module>archetypes</module>
         <module>fenix-framework-project</module>
-        <module>bennu-project</module>
+        <module>ist-dsi-project</module>
+        <module>web-app-project</module>
+        <module>web-library-project</module>
     </modules>
 </project>
