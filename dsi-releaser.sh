@@ -72,12 +72,17 @@ function release() {
         exit
     fi
 
-    mvn release:prepare -B -Dtag=$TAG_NAME -DreleaseVersion=$RELEASE_VERSION \
-                        -DdevelopmentVersion=$DEVELOP-SNAPSHOT
+    mvn release:prepare -B \
+                        -Dtag=$TAG_NAME \
+                        -DreleaseVersion=$RELEASE_VERSION \
+                        -DdevelopmentVersion=$DEVELOP-SNAPSHOT \
+                        -DscmCommentPrefix="[DSI Releaser] "
 
-    if [[ -z $? ]];
+    if [[ $? -ne 0 ]];
         then
-        println "Release failed..."
+        git checkout .
+        git clean -df
+        println "Maven compilation failure. Aborting..."
         exit -1
     fi
 
@@ -96,7 +101,7 @@ function release() {
     git checkout master
     git merge --no-ff $ORIGINAL_BRANCH
 
-    if [[ -z $? ]]; then
+    if [[ $? -ne 0 ]]; then
         println "Merge to master had conflicts. Resolve the conflicts manually," 
         println "then use 'git add <file>' to mark the conflict as resolved. Run 'exit' to resume the release."
         bash
@@ -110,7 +115,7 @@ function release() {
     git checkout develop
     git merge --no-ff $ORIGINAL_BRANCH
 
-    if [[ -z $? ]]; then
+    if [[ $? -ne 0 ]]; then
         println "Merge to develop had conflicts. Resolve the conflicts manually," 
         println "then use 'git add <file>' to mark the conflict as resolved. Run 'exit' to resume the release."
         bash
@@ -120,7 +125,7 @@ function release() {
     git cherry-pick $BACKUP_BRANCH
 
 
-    if [[ -z $? ]]; then
+    if [[ $? -ne 0 ]]; then
         println "Cherry-Pick to develop had conflicts. Resolve the conflicts manually," 
         println "then use 'git add <file>' to mark the conflict as resolved. Run 'exit' to resume the release."
         bash
