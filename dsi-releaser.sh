@@ -47,6 +47,36 @@ function performChecks() {
     fi
 }
 
+function checkBranchesUpToDate() {
+
+    println "Fetching from remotes"
+    git fetch --all -p
+
+    println "Remotes fetched, ensuring local branches are up-to-date"
+
+    checkBranch master
+    checkBranch develop
+    checkBranch $ORIGINAL_BRANCH
+
+    git checkout $ORIGINAL_BRANCH
+}
+
+function checkBranch() {
+    git checkout $1
+    STATUS=$(git status)
+    if [[ $STATUS =~ "Your branch is" ]];
+        then
+        println "Error. Branch $1 is not in sync with remote!"
+        exit -1
+    fi
+    if [[ $STATUS =~ "Your branch and" ]];
+        then
+        println "Error. Branch $1 is not in sync with remote!"
+        exit -1
+    fi
+    println "Branch $1 is up-to-date"
+}
+
 function release() {
 
     println "Enter the new development version (without SNAPSHOT, e.g. 1.4.2): " 
@@ -162,4 +192,5 @@ function release() {
 
 printWelcome
 performChecks
+checkBranchesUpToDate
 release
