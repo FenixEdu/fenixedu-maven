@@ -50,7 +50,7 @@ function performChecks() {
 function checkBranchesUpToDate() {
 
     println "Fetching from remotes"
-    git fetch --all -p
+    git fetch --all -p > /dev/null
 
     println "Remotes fetched, ensuring local branches are up-to-date"
 
@@ -58,11 +58,11 @@ function checkBranchesUpToDate() {
     checkBranch develop
     checkBranch $ORIGINAL_BRANCH
 
-    git checkout $ORIGINAL_BRANCH
+    git checkout $ORIGINAL_BRANCH &> /dev/null
 }
 
 function checkBranch() {
-    git checkout $1
+    git checkout $1 &> /dev/null
     STATUS=$(git status)
     if [[ $STATUS =~ "Your branch is" ]];
         then
@@ -118,17 +118,19 @@ function release() {
 
     println "Maven release plugin finished, starting Git-Flow magic"
 
-    git clean -df
+    git clean -df &> /dev/null
 
-    git tag -d $TAG_NAME
+    git tag -d $TAG_NAME &> /dev/null
 
-    git checkout -b $BACKUP_BRANCH
+    git checkout -b $BACKUP_BRANCH &> /dev/null
     println "Created backup branch $BACKUP_BRANCH"
 
-    git checkout $ORIGINAL_BRANCH
-    git reset --hard HEAD~1
+    git checkout $ORIGINAL_BRANCH &> /dev/null
+    git reset --hard HEAD~1 &> /dev/null
 
-    git checkout master
+    println "Merging into master"
+
+    git checkout master &> /dev/null
     git merge --no-ff $ORIGINAL_BRANCH
 
     if [[ $? -ne 0 ]]; then
@@ -142,7 +144,9 @@ function release() {
 
     println "Merged into master"
 
-    git checkout develop
+    println "Merging into develop"
+
+    git checkout develop  &> /dev/null
     git merge --no-ff $ORIGINAL_BRANCH
 
     if [[ $? -ne 0 ]]; then
@@ -163,7 +167,7 @@ function release() {
     fi
 
     println "Merged into develop"
-    git branch -D $BACKUP_BRANCH
+    git branch -D $BACKUP_BRANCH &> /dev/null
 
     println "Do you wish to delete the release branch ($ORIGINAL_BRANCH)? [y/n]"
 
@@ -174,7 +178,7 @@ function release() {
         git branch -D $ORIGINAL_BRANCH
     fi
 
-    git checkout master
+    git checkout master &> /dev/null
 
     println "Do you wish to deploy the released version to nexus? [y/n]"
 
