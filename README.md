@@ -1,4 +1,4 @@
-DSI Releaser v0.1
+DSI Releaser v0.1.2
 =========
 
 DSI Releaser is a script created to automate the process of releasing any Maven project, using Maven's [release plugin](http://maven.apache.org/maven-release/maven-release-plugin/), while following the conventions of [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/).
@@ -14,10 +14,17 @@ To use DSI Releaser simply put `dsi-releaser.sh` in a folder in your `PATH`, and
 ```sh
 jpc@arthas ~/workspace/bennu (release/1.2.0) $ dsi-releaser.sh 
 =================================================================================
-                             DSI - Releaser  v0.1
+                            DSI - Releaser  v0.1.2                     
                          http://github.com/jcarvalho                             
 =================================================================================
 [DSI Releaser] Releasing bennu v1.2.0
+[DSI Releaser] Checking for updates...
+[DSI Releaser] DSI Releaser is up-to-date
+[DSI Releaser] Fetching from remotes
+[DSI Releaser] Remotes fetched, ensuring local branches are up-to-date
+[DSI Releaser] Branch master is up-to-date
+[DSI Releaser] Branch develop is up-to-date
+[DSI Releaser] Branch release/1.2.0 is up-to-date
 [DSI Releaser] Enter the new development version (without SNAPSHOT, e.g. 1.4.2):
 1.3.0
 [DSI Releaser] Release version: 1.2.0
@@ -42,40 +49,16 @@ y
 [INFO] Bennu Email Dispatching
 [INFO] Bennu Web-Service Utils
 [INFO] Bennu Framework
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building Bennu Framework 1.2.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-# Maven compilation
-[INFO] ------------------------------------------------------------------------
+(…)
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 34.784s
-[INFO] Finished at: Wed Jun 12 12:02:18 WEST 2013
+[INFO] Total time: 43.123s
+[INFO] Finished at: Fri Jun 14 11:34:54 WEST 2013
 [INFO] Final Memory: 15M/981M
 [INFO] ------------------------------------------------------------------------
 [DSI Releaser] Maven release plugin finished, starting Git-Flow magic
-Removing bennu-backend-util/pom.xml.releaseBackup
-Removing bennu-core/pom.xml.releaseBackup
-Removing bennu-plugin/pom.xml.releaseBackup
-Removing bennu-project/pom.xml.releaseBackup
-Removing email-dispatch/pom.xml.releaseBackup
-Removing file-support-plugin/pom.xml.releaseBackup
-Removing file-support/pom.xml.releaseBackup
-Removing lucene-indexing-plugin/pom.xml.releaseBackup
-Removing lucene/pom.xml.releaseBackup
-Removing pom.xml.releaseBackup
-Removing release.properties
-Removing scheduler-plugin/pom.xml.releaseBackup
-Removing scheduler/pom.xml.releaseBackup
-Removing web-service-utils/pom.xml.releaseBackup
-Deleted tag 'v1.2.0' (was 171b870)
-Switched to a new branch '__temp_branch_1.2.0'
 [DSI Releaser] Created backup branch __temp_branch_1.2.0
-Switched to branch 'release/1.2.0'
-HEAD is now at e31d069 [maven-release-plugin] prepare release v1.2.0
-Switched to branch 'master'
+[DSI Releaser] Merging into master
 Merge made by the 'recursive' strategy.
  bennu-backend-util/pom.xml     |    2 +-
  bennu-core/pom.xml             |    2 +-
@@ -92,7 +75,7 @@ Merge made by the 'recursive' strategy.
  web-service-utils/pom.xml      |    2 +-
  13 files changed, 15 insertions(+), 15 deletions(-)
 [DSI Releaser] Merged into master
-Switched to branch 'develop'
+[DSI Releaser] Merging into develop
 Merge made by the 'recursive' strategy.
  bennu-backend-util/pom.xml     |    2 +-
  bennu-core/pom.xml             |    2 +-
@@ -108,15 +91,12 @@ Merge made by the 'recursive' strategy.
  scheduler/pom.xml              |    2 +-
  web-service-utils/pom.xml      |    2 +-
  13 files changed, 15 insertions(+), 15 deletions(-)
-[develop a496868] [maven-release-plugin] prepare for next development iteration
+[develop 569c771] [DSI Releaser] prepare for next development iteration
  13 files changed, 15 insertions(+), 15 deletions(-)
 [DSI Releaser] Merged into develop
-Deleted branch __temp_branch_1.2.0 (was e3ea2b3).
 [DSI Releaser] Do you wish to delete the release branch (release/1.2.0)? [y/n]
 y
-Deleted branch release/1.2.0 (was e31d069).
-Switched to branch 'master'
-Your branch is ahead of 'upstream/master' by 4 commits.
+Deleted branch release/1.2.0 (was c90f61f).
 [DSI Releaser] Do you wish to deploy the released version to nexus? [y/n]
 n
 [DSI Releaser] All done. You should now push the master/develop branches as well as the tags using:
@@ -140,7 +120,9 @@ In order for the release to be successful, there are some requirements:
 
 ## Features
 
- * Performing several sanity checks, to ensure the environment fulfills the requirements (not all requirements are enforced in the current version).
+ * Check if a new version is available
+ * Performing several sanity checks, to ensure the environment fulfills the requirements
+ * Fetching remote branches, and checking if they are up-to-date
  * Invoking `maven-release-plugin`
  * Merging into the `master/develop` branches
  * Creating the SNAPSHOT-bump commit in `develop`
@@ -150,6 +132,5 @@ In order for the release to be successful, there are some requirements:
   
 ## Future Development
 
- * Correctly abort the release if there is a compilation error in Maven
- * Check that the local `master/develop` branches are up-to-date
+ * 
  
