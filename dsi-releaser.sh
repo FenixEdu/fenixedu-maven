@@ -4,6 +4,9 @@ function println() {
     echo "[DSI Releaser]" $@
 }
 
+SCRIPT_VERSION=v0.1.2
+UPDATES_URL='https://raw.github.com/ist-dsi/ist-dsi-maven/dsi-releaser/dsi-releaser.sh'
+
 ORIGINAL_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 RELEASE_VERSION=$(git rev-parse --abbrev-ref HEAD | sed 's/\// /g' | awk ' { print $NF } ')
 TAG_NAME="v$RELEASE_VERSION"
@@ -16,10 +19,32 @@ function printWelcome() {
     REPO_NAME=$(basename `git rev-parse --show-toplevel`)
 
     echo "================================================================================="
-    echo "                             DSI - Releaser  v0.1                                "
+    echo "                            DSI - Releaser  $SCRIPT_VERSION                     "
     echo "                         http://github.com/jcarvalho                             "
     echo "================================================================================="
     println "Releasing $REPO_NAME v$RELEASE_VERSION"
+}
+
+function checkForUpdates() {
+    println "Checking for updates..."
+
+    LATEST_VERSION=$(curl --silent $UPDATES_URL  | grep ^SCRIPT_VERSION | sed 's/=/ /g' | awk ' { print $NF } ')
+
+    # TODO: Check if version is greater, not different
+    if [[ $LATEST_VERSION != $SCRIPT_VERSION ]];
+        then
+        println "An update to DSI Releaser is available ($LATEST_VERSION). Do you wish to proceed with the release? [y/n]"
+
+        read PROCEED
+
+        if [[ $PROCEED != 'y' ]];
+            then
+            println "Aborting..."
+            exit -1
+        fi
+    else 
+        println "DSI Releaser is up-to-date"
+    fi
 }
 
 function performChecks() {
@@ -210,6 +235,7 @@ function release() {
 }
 
 printWelcome
+checkForUpdates
 performChecks
 checkBranchesUpToDate
 release
