@@ -54,11 +54,26 @@ function checkBranchesUpToDate() {
 
     println "Remotes fetched, ensuring local branches are up-to-date"
 
+    checkBranchConflict master
+    checkBranchConflict develop
+
     checkBranch master
     checkBranch develop
     checkBranch $ORIGINAL_BRANCH
 
     git checkout $ORIGINAL_BRANCH &> /dev/null
+}
+
+function checkBranchConflict() {
+    if [[ $(git branch -a | grep -v remotes | grep $1 | wc -l) = "0" ]];
+        then
+        # Branch is not local, let's see if there are any conflicts...
+        if [[ $(git branch -a | grep remotes | grep $1\$ | wc -l) != 1 ]];
+            then
+            println "Error! Branch $1 is not checked out and is present in multiple remotes!"
+            exit -1
+        fi
+    fi
 }
 
 function checkBranch() {
