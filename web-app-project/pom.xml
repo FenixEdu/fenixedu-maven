@@ -62,6 +62,16 @@
         </dependency>
         <dependency>
             <groupId>pt.ist</groupId>
+            <artifactId>fenix-framework-core-api</artifactId>
+            <version>${version.pt.ist.fenix.framework}</version>
+        </dependency>
+        <dependency>
+            <groupId>pt.ist</groupId>
+            <artifactId>fenix-framework-core-consistency-predicates</artifactId>
+            <version>${version.pt.ist.fenix.framework}</version>
+        </dependency>
+        <dependency>
+            <groupId>pt.ist</groupId>
             <artifactId>fenix-framework-backend-${fenix.framework.backend}-runtime</artifactId>
             <version>${version.pt.ist.fenix.framework}</version>
         </dependency>
