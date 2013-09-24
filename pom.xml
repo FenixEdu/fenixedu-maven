@@ -5,14 +5,14 @@
     <groupId>pt.ist</groupId>
     <artifactId>ist-dsi-maven</artifactId>
     <name>IST-DSI Maven Tools</name>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
 
     <scm>
         <connection>scm:git:git@github.com:ist-dsi/ist-dsi-maven.git</connection>
         <developerConnection>scm:git:git@github.com:ist-dsi/ist-dsi-maven.git</developerConnection>
         <url>http://ist-dsi.github.io/ist-dsi-maven</url>
-        <tag>v1.0.0</tag>
+        <tag>v1.1.0</tag>
     </scm>
 
     <build>
@@ -32,9 +32,25 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>fenix-ashes-maven-repository</id>
+            <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
+        </repository>
+    </repositories>
+
     <modules>
-        <module>ist-dsi-project</module>
+        <module>archetypes</module>
         <module>fenix-framework-project</module>
+        <module>ist-dsi-project</module>
+        <module>web-app-project</module>
+        <module>web-library-project</module>
     </modules>
 
+    <distributionManagement>
+        <repository>
+            <id>fenix-ashes-releases</id>
+            <url>https://fenix-ashes.ist.utl.pt/nexus/content/repositories/fenix-ashes-releases</url>
+        </repository>
+    </distributionManagement>
 </project>
