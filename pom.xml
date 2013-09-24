@@ -47,4 +47,11 @@
         <module>web-app-project</module>
         <module>web-library-project</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>fenix-ashes-releases</id>
+            <url>https://fenix-ashes.ist.utl.pt/nexus/content/repositories/fenix-ashes-releases</url>
+        </repository>
+    </distributionManagement>
 </project>
