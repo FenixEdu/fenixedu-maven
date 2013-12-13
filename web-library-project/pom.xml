@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pt.ist</groupId>
-        <artifactId>ist-dsi-project</artifactId>
-        <version>1.1.0</version>
-        <relativePath>../ist-dsi-project/pom.xml</relativePath>
+        <groupId>org.fenixedu</groupId>
+        <artifactId>fenixedu-project</artifactId>
+        <version>1.2.0</version>
+        <relativePath>../fenixedu-project/pom.xml</relativePath>
     </parent>
 
     <artifactId>web-library-project</artifactId>

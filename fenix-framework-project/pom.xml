@@ -3,14 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pt.ist</groupId>
+        <groupId>org.fenixedu</groupId>
         <artifactId>web-library-project</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <relativePath>../web-library-project/pom.xml</relativePath>
     </parent>
 
     <artifactId>fenix-framework-project</artifactId>
-    <name>IST - DSI Fenix Framework Project Root</name>
+    <name>Fenix Framework Project Root</name>
     <packaging>pom</packaging>
 
     <properties>

@@ -2,17 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pt.ist</groupId>
-    <artifactId>ist-dsi-maven</artifactId>
-    <name>IST-DSI Maven Tools</name>
-    <version>1.1.0</version>
+    <groupId>org.fenixedu</groupId>
+    <artifactId>fenixedu-maven</artifactId>
+    <version>1.2.0</version>
+    <name>FenixEdu Maven Tools</name>
     <packaging>pom</packaging>
+    <url>http://fenixedu.github.io</url>
+
+    <organization>
+        <name>FenixEdu</name>
+        <url>http://fenixedu.org</url>
+    </organization>
 
     <scm>
-        <connection>scm:git:git@github.com:ist-dsi/ist-dsi-maven.git</connection>
-        <developerConnection>scm:git:git@github.com:ist-dsi/ist-dsi-maven.git</developerConnection>
-        <url>http://ist-dsi.github.io/ist-dsi-maven</url>
-        <tag>v1.1.0</tag>
+        <connection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</connection>
+        <developerConnection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</developerConnection>
+        <url>http://fenixedu.github.io/fenixedu-maven</url>
+        <tag>v1.2.0</tag>
     </scm>
 
     <build>
@@ -39,18 +45,18 @@
         </repository>
     </repositories>
 
-    <modules>
-        <module>archetypes</module>
-        <module>fenix-framework-project</module>
-        <module>ist-dsi-project</module>
-        <module>web-app-project</module>
-        <module>web-library-project</module>
-    </modules>
-
     <distributionManagement>
         <repository>
             <id>fenix-ashes-releases</id>
             <url>https://fenix-ashes.ist.utl.pt/nexus/content/repositories/fenix-ashes-releases</url>
         </repository>
     </distributionManagement>
+
+    <modules>
+        <module>archetypes</module>
+        <module>fenix-framework-project</module>
+        <module>fenixedu-project</module>
+        <module>web-app-project</module>
+        <module>web-library-project</module>
+    </modules>
 </project>
