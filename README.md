@@ -1,4 +1,4 @@
-ist-dsi-maven
+fenixedu-maven
 =============
 
-ist-dsi Maven Artifacts
+FenixEdu Maven Artifacts

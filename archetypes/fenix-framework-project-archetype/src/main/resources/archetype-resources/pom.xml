@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pt.ist</groupId>
+        <groupId>org.fenixedu</groupId>
         <artifactId>fenix-framework-project</artifactId>
         <version>${parentVersion}</version>
     </parent>
