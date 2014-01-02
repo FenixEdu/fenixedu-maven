@@ -5,20 +5,34 @@
 
     <parent>
         <groupId>org.fenixedu</groupId>
-        <artifactId>fenix-framework-project</artifactId>
+        <artifactId>web-app-project</artifactId>
         <version>${parentVersion}</version>
     </parent>
 
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>${UpperCamelCaseProjectName}</name>
 
     <dependencies>
         <!-- PLACE YOUR PROJECT DEPENDENCIES HERE -->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <path>/${artifactId}</path>
+                    <port>8080</port>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     #if($privateProject == "true" || $privateProject == "t" ||
     $privateProject == "yes" || $privateProject == "YES" ||
@@ -30,13 +44,6 @@
             <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-private</url>
         </repository>
     </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>fenix-core-releases</id>
-            <url>https://fenix-ashes.ist.utl.pt/nexus/content/repositories/fenix-core-releases/</url>
-        </repository>
-    </distributionManagement>
     #else
     <repositories>
         <repository>
