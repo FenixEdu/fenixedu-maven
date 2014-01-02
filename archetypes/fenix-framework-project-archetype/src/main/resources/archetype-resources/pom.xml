@@ -21,7 +21,8 @@
     </dependencies>
 
     #if($privateProject == "true" || $privateProject == "t" ||
-    $privateProject == "yes" || $privateProject == "YES" || $privateProject
+    $privateProject == "yes" || $privateProject == "YES" ||
+    $privateProject
     == "y" || $privateProject == "Y" || $privateProject == "TRUE")
     <repositories>
         <repository>
