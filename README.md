@@ -1,4 +1,4 @@
-DSI Releaser v0.2.0
+DSI Releaser v0.2.1
 =========
 
 DSI Releaser is a script created to automate the process of releasing any Maven project, using Maven's [release plugin](http://maven.apache.org/maven-release/maven-release-plugin/), while following the conventions of [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/).
@@ -14,7 +14,7 @@ To use DSI Releaser simply put `dsi-releaser.sh` in a folder in your `PATH`, and
 ```sh
 jpc@arthas ~/workspace/bennu (release/1.2.0) $ dsi-releaser.sh 
 =================================================================================
-                            DSI - Releaser  v0.2.0                     
+                            DSI - Releaser  v0.2.1                     
                          http://github.com/jcarvalho                             
 =================================================================================
 [DSI Releaser] Releasing bennu v1.2.0

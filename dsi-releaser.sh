@@ -4,8 +4,8 @@ function println() {
     echo "[DSI Releaser]" $@
 }
 
-SCRIPT_VERSION=v0.2.0
-UPDATES_URL='https://raw.github.com/ist-dsi/ist-dsi-maven/dsi-releaser/dsi-releaser.sh'
+SCRIPT_VERSION=v0.2.1
+UPDATES_URL='https://raw.github.com/fenixedu/fenixedu-maven/dsi-releaser/dsi-releaser.sh'
 
 ORIGINAL_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 RELEASE_VERSION=$(git rev-parse --abbrev-ref HEAD | sed 's/\// /g' | awk ' { print $NF } ')
