@@ -14,9 +14,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.pt.ist.fenix.framework>2.4.0</version.pt.ist.fenix.framework>
+        <version.pt.ist.fenix.framework>2.4.1</version.pt.ist.fenix.framework>
 
-        <version.pt.ist.ff.maven.plugin>2.4.0</version.pt.ist.ff.maven.plugin>
+        <version.pt.ist.ff.maven.plugin>2.4.1</version.pt.ist.ff.maven.plugin>
     </properties>
 
     <build>
