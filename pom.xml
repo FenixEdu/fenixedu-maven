@@ -4,7 +4,7 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>fenixedu-maven</artifactId>
-    <version>1.4.0-SNAPSHOT</version>
+    <version>1.3.1</version>
     <name>FenixEdu Maven Tools</name>
     <packaging>pom</packaging>
     <url>http://fenixedu.github.io</url>
@@ -18,7 +18,7 @@
         <connection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</connection>
         <developerConnection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</developerConnection>
         <url>http://fenixedu.github.io/fenixedu-maven</url>
-        <tag>HEAD</tag>
+        <tag>v1.3.1</tag>
     </scm>
 
     <build>
