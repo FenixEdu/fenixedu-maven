@@ -55,6 +55,7 @@
     <modules>
         <module>archetypes</module>
         <module>fenix-framework-project</module>
+        <module>fenixedu-license-headers</module>
         <module>fenixedu-project</module>
         <module>web-app-project</module>
         <module>web-library-project</module>
