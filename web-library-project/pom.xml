@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.fenixedu</groupId>
         <artifactId>fenixedu-project</artifactId>
-        <version>1.4.0-SNAPSHOT</version>
+        <version>1.3.2</version>
         <relativePath>../fenixedu-project/pom.xml</relativePath>
     </parent>
 
