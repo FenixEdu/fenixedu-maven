@@ -4,7 +4,7 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>fenixedu-maven</artifactId>
-    <version>2.0.1</version>
+    <version>2.1.0</version>
     <name>FenixEdu Maven Tools</name>
     <packaging>pom</packaging>
     <url>http://fenixedu.github.io</url>
@@ -18,7 +18,7 @@
         <connection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</connection>
         <developerConnection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</developerConnection>
         <url>http://fenixedu.github.io/fenixedu-maven</url>
-        <tag>v2.0.1</tag>
+        <tag>v2.1.0</tag>
     </scm>
 
     <build>
