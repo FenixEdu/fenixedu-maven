@@ -15,9 +15,8 @@
 
     <properties>
         <version.ch.qos.logback.logback.classic>1.1.2</version.ch.qos.logback.logback.classic>
-        <version.pt.ist.fenix.framework>2.4.1</version.pt.ist.fenix.framework>
-
-        <version.pt.ist.ff.maven.plugin>2.4.1</version.pt.ist.ff.maven.plugin>
+        <version.pt.ist.fenix.framework>2.5.0</version.pt.ist.fenix.framework>
+        <version.pt.ist.ff.maven.plugin>${version.pt.ist.fenix.framework}</version.pt.ist.ff.maven.plugin>
 
         <fenix.framework.codeGeneratorClassName>pt.ist.fenixframework.backend.jvstmojb.codeGenerator.FenixCodeGeneratorOneBoxPerObject</fenix.framework.codeGeneratorClassName>
         <fenix.framework.backend>jvstm-ojb</fenix.framework.backend>
@@ -37,7 +36,6 @@
                         <id>default</id>
                         <goals>
                             <goal>ff-generate-domain</goal>
-                            <goal>ff-post-compile</goal>
                             <goal>ff-process-atomic-annotations</goal>
                         </goals>
                     </execution>
