@@ -4,7 +4,7 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>fenixedu-project</artifactId>
-    <version>2.1.0</version>
+    <version>2.2.0-SNAPSHOT</version>
     <name>FenixEdu Project Root</name>
     <packaging>pom</packaging>
     <url>http://fenixedu.github.io</url>
@@ -152,7 +152,7 @@
                     <dependency>
                         <groupId>org.fenixedu</groupId>
                         <artifactId>fenixedu-license-headers</artifactId>
-                        <version>2.1.0</version>
+                        <version>2.2.0-SNAPSHOT</version>
                     </dependency>
                 </dependencies>
             </plugin>
