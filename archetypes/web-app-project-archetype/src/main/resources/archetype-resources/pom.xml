@@ -34,22 +34,10 @@
         </plugins>
     </build>
 
-    #if($privateProject == "true" || $privateProject == "t" ||
-    $privateProject == "yes" || $privateProject == "YES" ||
-    $privateProject
-    == "y" || $privateProject == "Y" || $privateProject == "TRUE")
     <repositories>
         <repository>
-            <id>fenix-ashes-private</id>
-            <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-private</url>
+            <id>fenixedu-maven-repository</id>
+            <url>https://repo.fenixedu.org/fenixedu-maven-repository</url>
         </repository>
     </repositories>
-    #else
-    <repositories>
-        <repository>
-            <id>fenix-ashes-maven-repository</id>
-            <url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
-        </repository>
-    </repositories>
-    #end
 </project>

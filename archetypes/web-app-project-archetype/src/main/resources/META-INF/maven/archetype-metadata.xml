@@ -7,9 +7,6 @@
         <requiredProperty key="parentVersion">
             <defaultValue>2.0.0-SNAPSHOT</defaultValue>
         </requiredProperty>
-        <requiredProperty key="privateProject">
-            <defaultValue>n</defaultValue>
-        </requiredProperty>
         <requiredProperty key="UpperCamelCaseProjectName" />
         <requiredProperty key="package">
             <defaultValue>${groupId}.${artifactId}</defaultValue>
