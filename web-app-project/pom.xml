@@ -14,8 +14,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.ch.qos.logback.logback.classic>1.1.3</version.ch.qos.logback.logback.classic>
-        <version.pt.ist.fenix.framework>2.6.2</version.pt.ist.fenix.framework>
+        <version.ch.qos.logback.logback.classic>1.1.9</version.ch.qos.logback.logback.classic>
+        <version.pt.ist.fenix.framework>2.7.0</version.pt.ist.fenix.framework>
         <version.pt.ist.ff.maven.plugin>${version.pt.ist.fenix.framework}</version.pt.ist.ff.maven.plugin>
 
         <fenix.framework.codeGeneratorClassName>pt.ist.fenixframework.backend.jvstmojb.codeGenerator.FenixCodeGeneratorOneBoxPerObject</fenix.framework.codeGeneratorClassName>
