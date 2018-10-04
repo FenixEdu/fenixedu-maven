@@ -14,9 +14,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.pt.ist.fenix.framework>2.7.0</version.pt.ist.fenix.framework>
-        <version.code.generator>2.7.0</version.code.generator>
-        <version.pt.ist.ff.maven.plugin>2.7.0</version.pt.ist.ff.maven.plugin>
+        <version.pt.ist.fenix.framework>2.8.0</version.pt.ist.fenix.framework>
+        <version.code.generator>2.8.0</version.code.generator>
+        <version.pt.ist.ff.maven.plugin>2.8.0</version.pt.ist.ff.maven.plugin>
         <code.generator.class>pt.ist.fenixframework.backend.jvstm.InMemCodeGenerator</code.generator.class>
     </properties>
 
