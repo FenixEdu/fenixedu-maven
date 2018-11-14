@@ -18,6 +18,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <project.resources.encoding>UTF-8</project.resources.encoding>
+        <project.resources.dirs>${project.basedir}/src/main/resources/resources/**,${project.basedir}/src/test/resources/resources/**</project.resources.dirs>
+
         <java.compilation.source.version>1.8</java.compilation.source.version>
         <java.compilation.target.version>1.8</java.compilation.target.version>
 
@@ -168,6 +171,35 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>${version.org.apache.maven.plugins.maven.dependency.plugin}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <!-- find the latest version at http://maven.apache.org/plugins/maven-enforcer-plugin/ -->
+                <version>3.0.0-M2</version>
+                <executions>
+                    <execution>
+                        <id>require-encoding</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireEncoding>
+                                    <encoding>${project.resources.encoding}</encoding>
+                                    <includes>${project.resources.dirs}</includes>
+                                </requireEncoding>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>extra-enforcer-rules</artifactId>
+                        <!-- find the latest version at http://www.mojohaus.org/extra-enforcer-rules/ -->
+                        <version>1.0-beta-9</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
