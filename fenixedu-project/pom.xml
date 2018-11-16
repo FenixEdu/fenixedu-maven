@@ -106,7 +106,6 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${version.org.apache.maven.plugins.maven.release.plugin}</version>
                 <configuration>
-                    <pushChanges>false</pushChanges>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
 
                     <!-- Ensure that every module is versioned together -->
