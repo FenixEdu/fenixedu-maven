@@ -20,6 +20,11 @@
         <url>http://fenixedu.github.io/fenixedu-maven</url>
         <tag>HEAD</tag>
     </scm>
+    
+      <issueManagement>
+        <system>JIRA</system>
+        <url>https://jira.fenixedu.org/browse/FMVN</url>
+    </issueManagement>
 
     <build>
         <plugins>
