@@ -33,7 +33,6 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                    <pushChanges>false</pushChanges>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
 
                     <!-- Ensure that every module is versioned together -->
