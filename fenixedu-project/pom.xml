@@ -24,7 +24,7 @@
         <java.compilation.source.version>1.8</java.compilation.source.version>
         <java.compilation.target.version>1.8</java.compilation.target.version>
 
-        <version.junit.junit>4.12</version.junit.junit>
+        <version.junit.junit>4.13.1</version.junit.junit>
         <version.org.slf4j.slf4j.api>1.7.22</version.org.slf4j.slf4j.api>
 
         <license.header.path>org/fenixedu/licenses/LGPL_v3.txt</license.header.path>
