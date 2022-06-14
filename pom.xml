@@ -15,8 +15,8 @@
     </organization>
 
     <scm>
-        <connection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</connection>
-        <developerConnection>scm:git:git@github.com:fenixedu/fenixedu-maven.git</developerConnection>
+        <connection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:fenixedu/application/fenixedu-maven.git</connection>
+        <developerConnection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:fenixedu/application/fenixedu-maven</developerConnection>
         <url>http://fenixedu.github.io/fenixedu-maven</url>
         <tag>HEAD</tag>
     </scm>
