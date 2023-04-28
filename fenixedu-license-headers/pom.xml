@@ -4,7 +4,7 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>fenixedu-license-headers</artifactId>
-    <version>3.0.0-beta1</version>
+    <version>DEV-SNAPSHOT</version>
     <name>FenixEdu Common License Headers</name>
     <packaging>jar</packaging>
 
