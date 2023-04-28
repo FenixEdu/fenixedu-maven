@@ -21,8 +21,8 @@
         <project.resources.encoding>UTF-8</project.resources.encoding>
         <project.resources.dirs>${project.basedir}/src/main/resources/resources/**,${project.basedir}/src/test/resources/resources/**</project.resources.dirs>
 
-        <java.compilation.source.version>1.8</java.compilation.source.version>
-        <java.compilation.target.version>1.8</java.compilation.target.version>
+        <java.compilation.source.version>17</java.compilation.source.version>
+        <java.compilation.target.version>17</java.compilation.target.version>
 
         <version.junit.junit>4.12</version.junit.junit>
         <version.org.slf4j.slf4j.api>1.7.22</version.org.slf4j.slf4j.api>
