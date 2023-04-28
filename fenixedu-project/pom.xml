@@ -4,7 +4,7 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>fenixedu-project</artifactId>
-    <version>DEV-SNAPSHOT</version>
+    <version>3.0.0-beta1</version>
     <name>FenixEdu Project Root</name>
     <packaging>pom</packaging>
     <url>http://fenixedu.github.io</url>
