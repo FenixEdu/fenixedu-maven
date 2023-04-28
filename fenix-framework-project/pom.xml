@@ -14,10 +14,10 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.pt.ist.fenix.framework>2.8.0</version.pt.ist.fenix.framework>
-        <version.code.generator>2.8.0</version.code.generator>
-        <version.pt.ist.ff.maven.plugin>2.8.0</version.pt.ist.ff.maven.plugin>
-        <code.generator.class>pt.ist.fenixframework.backend.jvstm.InMemCodeGenerator</code.generator.class>
+        <version.pt.ist.fenix.framework>3.0.0-beta1</version.pt.ist.fenix.framework>
+        <version.code.generator>3.0.0-beta1</version.code.generator>
+        <version.pt.ist.ff.maven.plugin>3.0.0-beta1</version.pt.ist.ff.maven.plugin>
+        <code.generator.class>pt.ist.fenixframework.backend.jvstm.JVSTMCodeGenerator</code.generator.class>
     </properties>
 
     <build>
@@ -51,7 +51,12 @@
                 <dependencies>
                     <dependency>
                         <groupId>pt.ist</groupId>
-                        <artifactId>fenix-framework-backend-jvstm-inmem-code-generator</artifactId>
+                        <artifactId>fenix-framework-dml-compiler</artifactId>
+                        <version>${version.code.generator}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>pt.ist</groupId>
+                        <artifactId>fenix-framework-core</artifactId>
                         <version>${version.code.generator}</version>
                     </dependency>
                 </dependencies>
@@ -92,22 +97,12 @@
     <dependencies>
         <dependency>
             <groupId>pt.ist</groupId>
-            <artifactId>fenix-framework-core-api</artifactId>
+            <artifactId>fenix-framework-dml-compiler</artifactId>
             <version>${version.pt.ist.fenix.framework}</version>
         </dependency>
         <dependency>
             <groupId>pt.ist</groupId>
-            <artifactId>fenix-framework-core-consistency-predicates</artifactId>
-            <version>${version.pt.ist.fenix.framework}</version>
-        </dependency>
-        <dependency>
-            <groupId>pt.ist</groupId>
-            <artifactId>fenix-framework-backend-jvstm-common-runtime</artifactId>
-            <version>${version.pt.ist.fenix.framework}</version>
-        </dependency>
-        <dependency>
-            <groupId>pt.ist</groupId>
-            <artifactId>fenix-framework-backend-jvstm-inmem-runtime</artifactId>
+            <artifactId>fenix-framework-core</artifactId>
             <version>${version.pt.ist.fenix.framework}</version>
         </dependency>
     </dependencies>
